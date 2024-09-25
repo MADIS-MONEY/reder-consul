@@ -4,9 +4,6 @@ server = true
 # Data center name
 datacenter = "dc1"
 
-# Specify a data directory for Consul to store its state
-data_dir = "/consul/data"  # Set this to a directory that is writable by the Consul process
-
 # Node name, typically the Render node name
 node_name = "srv-crq543ij1k6c738be7tg-hibernate-7594f5b969-ddxm8"
 
@@ -46,7 +43,9 @@ ports {
 
 # Enable telemetry for monitoring
 telemetry {
+  prometheus_retention_time = "24h"
   disable_hostname = true
+  prometheus_metrics = true
 }
 
 # Enable service health checks
