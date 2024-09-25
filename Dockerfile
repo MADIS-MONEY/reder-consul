@@ -3,17 +3,16 @@ FROM consul:1.14.2
 
 # Set Consul data directory
 ENV CONSUL_DATA_DIR /consul/data
+ENV CONSUL_CONFIG_DIR /consul/config
 
 # Create data directory
-RUN mkdir -p ${CONSUL_DATA_DIR}
+RUN mkdir -p ${CONSUL_DATA_DIR} ${CONSUL_CONFIG_DIR}
 
 # Expose default Consul ports
-EXPOSE 8500 8600 8300 8301 8302 8400
+EXPOSE 8500 8501 8600 8300 8301 8302 8400 
 
-# Copy your configuration files (if any)
+# Copy your production config
 COPY ./consul-config /consul/config
 
-# Start Consul agent in development mode for basic testing (not for production)
-ENTRYPOINT ["consul", "agent", "-dev", "-client=0.0.0.0", "-data-dir", "/consul/data"]
-
-# Optional: For production, configure Consul properly (see notes below)
+# Start Consul agent with custom config
+ENTRYPOINT ["consul", "agent", "-config-dir", "/consul/config"]
