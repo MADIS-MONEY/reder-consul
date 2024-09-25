@@ -25,7 +25,6 @@ performance {
 ports {
   http = 8500  # HTTP port for Consul
   https = 8501 # HTTPS port for Consul
-  rpc = 8400   # RPC port
 }
 
 # Enable auto-encryption for secure communication
