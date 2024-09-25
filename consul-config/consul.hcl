@@ -44,7 +44,6 @@ ports {
 # Enable telemetry for monitoring
 telemetry {
   disable_hostname = true
-  prometheus_metrics = true
 }
 
 # Enable service health checks
