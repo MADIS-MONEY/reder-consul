@@ -4,6 +4,9 @@ server = true
 # Data center name
 datacenter = "dc1"
 
+# Specify a data directory for Consul to store its state
+data_dir = "/consul/data"  # Set this to a directory that is writable by the Consul process
+
 # Node name, typically the Render node name
 node_name = "srv-crq543ij1k6c738be7tg-hibernate-7594f5b969-ddxm8"
 
@@ -22,6 +25,7 @@ performance {
 ports {
   http = 8500  # HTTP port for Consul
   https = 8501 # HTTPS port for Consul
+  rpc = 8400   # RPC port
 }
 
 # Enable auto-encryption for secure communication
